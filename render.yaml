@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: topbrowser
+    env: dotnet
+    plan: free
+    buildCommand: dotnet publish -c Release -o out
+    startCommand: dotnet out/TBSite.dll
