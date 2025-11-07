@@ -1,17 +1,19 @@
-# Используем официальный .NET SDK для сборки
+# Сборка приложения
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Копируем все файлы проекта
+# Копируем всё
 COPY . ./
 
-# Публикуем проект в /out
+# Публикуем проект
 RUN dotnet publish -c Release -o out
 
-# Используем минимальный рантайм-образ
+# Минимальный рантайм для запуска
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
+
+# Копируем собранное приложение
 COPY --from=build /app/out .
 
-# Запускаем приложение
+# Запуск сайта
 ENTRYPOINT ["dotnet", "TBSite.dll"]
