@@ -15,13 +15,39 @@
         }
 
         .navbar-brand {
+            display: flex;
+            align-items: center;
             font-size: 28px;
             font-weight: bold;
-            color: white !important; /* Белый текст TopBrowser */
+            color: white !important;
+            text-decoration: none;
         }
 
+        /* ===== Логотип (некликабельный, со свечением) ===== */
+        .navbar-logo {
+            height: 65px;
+            width: auto;
+            border-radius: 12px;
+            margin-right: 10px;
+            pointer-events: none; /* делает логотип некликабельным */
+            transition: filter 0.4s ease, transform 0.4s ease;
+        }
+
+            .navbar-logo:hover {
+                filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+                transform: scale(1.05);
+            }
+
+        /* ===== Текст TopBrowser ===== */
+        .navbar-brand span {
+            color: white;
+            text-decoration: none;
+            transition: none; /* отключаем любые эффекты */
+        }
+
+        /* ===== Навигация ===== */
         .navbar-nav .nav-link {
-            color: white !important; /* Белый текст ссылок */
+            color: white !important;
             font-weight: 500;
             margin-left: 20px;
             transition: 0.3s;
@@ -45,9 +71,14 @@
     <header>
         <nav class="navbar navbar-expand-sm">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">TopBrowser</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <div class="d-flex align-items-center">
+                    <img src="~/images/logo.png" alt="TopBrowser Logo" class="navbar-logo" />
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">
+                        <span>TopBrowser</span>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
@@ -69,7 +100,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-             2025 TBrowser.
+            © 2025 TopBrowser
         </div>
     </footer>
 
