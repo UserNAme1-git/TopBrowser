@@ -1,7 +1,6 @@
 services:
   - type: web
     name: topbrowser
-    env: dotnet
+    env: docker
     plan: free
-    buildCommand: dotnet publish -c Release -o out
-    startCommand: dotnet out/TBSite.dll
+    dockerfilePath: ./Dockerfile
