@@ -1,23 +1,24 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Добавляем Razor Pages
 builder.Services.AddRazorPages();
+
+// ⚙️ Настройка порта (важно для Render)
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Конвейер обработки HTTP-запросов
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// ⚠️ Убираем HTTPS-перенаправление (Render сам управляет HTTPS)
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapRazorPages();
