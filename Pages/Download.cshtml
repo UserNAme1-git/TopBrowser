@@ -1,0 +1,155 @@
+﻿@page
+@model DownloadModel
+@{
+    ViewData["Title"] = "Скачать TopBrowser";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        /* ===== Общие стили ===== */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #f9fbff, #e8f2ff);
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0 0 20px;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: linear-gradient(135deg, #007bff, #00b0ff);
+            color: white;
+            text-align: center;
+            padding: 100px 60px 80px 60px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+            header h1 {
+                font-size: 56px;
+                margin-bottom: 15px;
+            }
+
+            header p {
+                font-size: 20px;
+                opacity: 0.95;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+        /* ===== Кнопки скачивания ===== */
+        .download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 60px;
+        }
+
+        .download-text {
+            font-size: 22px;
+            color: #0056b3;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #007bff, #00b0ff);
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,123,255,0.2);
+            transition: all 0.3s ease;
+            width: 250px;
+            text-align: center;
+        }
+
+            .download-btn:hover {
+                background: linear-gradient(135deg, #0056b3, #0088ff);
+                transform: translateY(-4px);
+                box-shadow: 0 10px 20px rgba(0,123,255,0.25);
+            }
+
+        /* ===== Доп. информация ===== */
+        .info {
+            margin-top: 60px;
+            text-align: center;
+            color: #444;
+            font-size: 15px;
+            max-width: 600px;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: linear-gradient(135deg, #007bff, #00b0ff);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 -3px 12px rgba(0,0,0,0.1);
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <h1>Скачать TopBrowser</h1>
+        <p>Выберите версию Windows и установите браузер прямо сейчас</p>
+    </header>
+
+    <!-- ===== Основная секция ===== -->
+    <section class="download-section">
+        <div class="download-text">Доступные версии:</div>
+
+        <div class="download-buttons">
+            <a class="download-btn" href="/files/TopBrowserSetup1.exe" download>Windows 10 Home</a>
+            <a class="download-btn" href="/files/TopBrowserSetup2.exe" download>Windows 10 Pro</a>
+            <a class="download-btn" href="/files/TopBrowserSetup3.exe" download>Windows 11 Home</a>
+            <a class="download-btn" href="/files/TopBrowserSetup4.exe" download>Windows 11 Pro</a>
+        </div>
+
+        <div class="info">
+            Установка займёт всего несколько минут. После завершения установки вы сможете настроить TopBrowser под себя и сразу приступить к работе.
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        © 2025 TopBrowser — Быстрее. Умнее. Безопаснее.
+    </footer>
+
+</body>
+</html>
